@@ -60,30 +60,99 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initCursor() {
-    const cursor = document.querySelector('.custom-cursor');
-    if (!cursor) return;
+    const cursor = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+    let isVisible = false;
 
-    // Movimiento del cursor
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
+    // Ocultar cursores al inicio
+    if (cursor && cursorOutline) {
+        cursor.style.opacity = '0';
+        cursorOutline.style.opacity = '0';
+    }
 
-    // Efecto hover
-    document.querySelectorAll('a, button, .gallery-card').forEach(elem => {
-        elem.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        elem.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
+    // Solo inicializar en dispositivos no táctiles
+    if (window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Mostrar cursores cuando se mueve el mouse
+            if (!isVisible) {
+                cursor.style.opacity = '1';
+                cursorOutline.style.opacity = '1';
+                isVisible = true;
+            }
+
+            // Actualizar posición del cursor dot
+            cursor.style.transform = `translate(${posX}px, ${posY}px)`;
+            
+            // Actualizar posición del outline con un pequeño retraso para efecto suave
+            requestAnimationFrame(() => {
+                cursorOutline.style.transform = `translate(${posX}px, ${posY}px)`;
+            });
+        });
+
+        // Ocultar cursores cuando el mouse sale de la ventana
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorOutline.style.opacity = '0';
+            isVisible = false;
+        });
+
+        // Mostrar cursores cuando el mouse entra a la ventana
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorOutline.style.opacity = '1';
+            isVisible = true;
+        });
+
+        // Efecto hover mejorado
+        const hoverElements = document.querySelectorAll('a, button, .gallery-card');
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorOutline.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorOutline.classList.remove('hover');
+            });
+        });
+    }
 }
 
+// Eliminar la función initCursorFollower anterior y reemplazarla con esta versión mejorada
 function initCursorFollower() {
-    const follower = document.createElement('div');
-    follower.classList.add('cursor-follower');
-    document.body.appendChild(follower);
+    // Solo inicializar en dispositivos no táctiles
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
+    const follower = document.querySelector('.cursor-follower');
+    if (!follower) return;
+
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    // Función de animación suave
+    function animate() {
+        // Interpolación suave
+        currentX += (targetX - currentX) * 0.1;
+        currentY += (targetY - currentY) * 0.1;
+        
+        follower.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        requestAnimationFrame(animate);
+    }
+
+    // Actualizar posición objetivo
     document.addEventListener('mousemove', (e) => {
-        follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        targetX = e.clientX;
+        targetY = e.clientY;
     });
+
+    // Iniciar animación
+    animate();
 }
 
 function initGallery() {

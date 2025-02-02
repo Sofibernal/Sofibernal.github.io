@@ -397,10 +397,6 @@ body {
 
     .social-sidebar {
         right: 0.5rem; /* Reducido el margen derecho */
-        background: rgba(10, 10, 10, 0.8); /* Fondo semi-transparente */
-        padding: 0.5rem;
-        border-radius: 25px;
-        backdrop-filter: blur(5px);
     }
 
     .filtro-btn {
@@ -805,7 +801,7 @@ body {
 /* Barra social lateral derecha */
 .social-sidebar {
     position: fixed;
-    right: 2rem;
+    right: 1.5rem;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -820,12 +816,71 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.7;
     will-change: transform, opacity;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil para mejor visibilidad */
 }
 
 .social-sidebar a:hover {
     color: var(--color-accent);
     transform: rotate(360deg) scale(1.2);
     opacity: 1;
+}
+
+/* Ajustes móviles para la barra social */
+@media (max-width: 768px) {
+    .social-sidebar {
+        right: 0.8rem;
+        gap: 1rem;
+    }
+
+    .social-sidebar a {
+        font-size: 1.2rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Aumentada la sombra para mejor visibilidad */
+    }
+}
+
+/* Ajuste adicional para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .social-sidebar {
+        right: 0.5rem;
+        gap: 0.8rem;
+        transform: translateY(-50%) scale(0.8);
+    }
+
+    .social-sidebar a {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes móviles para la barra social */
+@media (max-width: 768px) {
+    .social-sidebar {
+        right: 0.5rem;
+        gap: 1rem; /* Reducir espaciado entre iconos */
+    }
+
+    .social-sidebar a {
+        font-size: 1.2rem; /* Iconos más pequeños en móvil */
+        padding: 0.3rem; /* Padding más compacto */
+    }
+
+    /* Ajustar la posición para que no interfiera tanto */
+    .social-sidebar {
+        transform: translateY(-50%) scale(0.9); /* Hacer toda la barra ligeramente más pequeña */
+    }
+}
+
+/* Ajuste adicional para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .social-sidebar {
+        right: 0.3rem;
+        gap: 0.8rem;
+        transform: translateY(-50%) scale(0.8);
+    }
+
+    .social-sidebar a {
+        font-size: 1rem;
+        padding: 0.2rem;
+    }
 }
 
 /* Cursor personalizado mejorado */
@@ -836,9 +891,10 @@ body {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
+    z-index: var(--z-cursor);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.1s ease;
+    will-change: transform;
 }
 
 .cursor-outline {
@@ -848,9 +904,26 @@ body {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.1s ease;
+    z-index: calc(var(--z-cursor) - 1);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.15s ease-out;
+    will-change: transform;
+}
+
+.cursor-dot.hover,
+.cursor-outline.hover {
+    transform: scale(1.5);
+    background: transparent;
+    border-color: var(--color-accent);
+}
+
+/* Asegurar que los cursores personalizados no aparezcan en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline,
+    .cursor-follower {
+        display: none;
+    }
 }
 
 /* Cursor personalizado que sigue al mouse */
