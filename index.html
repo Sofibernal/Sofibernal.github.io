@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sofi Bernal - Fotografía profesional en Nueva York. Especializada en fotografía urbana, retratos y eventos.">
+    <meta name="keywords" content="fotografía, Nueva York, retratos, eventos, fotografía urbana">
+    <meta name="author" content="Sofi Bernal">
+    <meta property="og:title" content="Sofi Bernal | Fotografía & Video">
+    <meta property="og:description" content="Capturando momentos únicos a través del lente en Nueva York">
+    <meta property="og:image" content="path/to/og-image.jpg">
+    <title>Sofi Bernal | Fotografía & Video</title>
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Syncopate-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <div class="social-float">
+        <a href="https://instagram.com/your-handle" class="social-icon" data-tooltip="Instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/in/your-profile" class="social-icon" data-tooltip="LinkedIn" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://tiktok.com/@your-handle" class="social-icon" data-tooltip="TikTok" target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://youtube.com/c/your-channel" class="social-icon" data-tooltip="YouTube" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://wa.me/1234567890" class="social-icon" data-tooltip="WhatsApp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Barra social lateral -->
+    <div class="social-sidebar">
+        <a href="https://instagram.com/your-handle" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://tiktok.com/@your-handle" target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://youtube.com/c/your-channel" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    
+    <header class="hero">
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <div class="title-container">
+                <h1 class="reveal-text parallax-item" data-speed="0.1">
+                    <span class="neon-text">SOFI</span>
+                    <span class="gradient-text">BERNAL</span>
+                </h1>
+                <div class="scrolling-text">
+                    <span>CAPTURING THE PULSE OF THE CITY • NEW YORK • BROOKLYN • MANHATTAN • </span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#contacto" class="cta-button">
+                    <span>Book a Session</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-images">
+            <img src="img1.jpg" class="parallax-item" data-speed="0.2" loading="lazy">
+            <img src="img2.jpg" class="parallax-item" data-speed="0.15" loading="lazy">
+            <img src="img3.jpg" class="parallax-item" data-speed="0.1" loading="lazy">
+        </div>
+    </header>
+
+    <main>
+        <!-- Galería -->
+        <section id="galeria" class="section-galeria" data-scroll="fade-up">
+            <div class="section-header">
+                <h2 class="section-title shine-text">Mi Visión</h2>
+                <p class="section-subtitle">Capturando momentos únicos a través del lente</p>
+            </div>
+            <div class="filtros-container">
+                <div class="filtros">
+                    <button class="filtro-btn active" data-categoria="todos">
+                        <span>Todos</span>
+                        <span class="filtro-count">4</span>
+                    </button>
+                    <button class="filtro-btn" data-categoria="retratos">
+                        <span>Retratos</span>
+                        <span class="filtro-count">1</span>
+                    </button>
+                    <button class="filtro-btn" data-categoria="urbano">
+                        <span>Urbano</span>
+                        <span class="filtro-count">2</span>
+                    </button>
+                    <button class="filtro-btn" data-categoria="eventos">
+                        <span>Eventos</span>
+                        <span class="filtro-count">1</span>
+                    </button>
+                </div>
+            </div>
+            <div class="galeria-grid">
+                <div class="gallery-card" data-categoria="urbano">
+                    <img src="images/WhatsApp Image 2025-01-29 at 10.59.39 PM.jpeg" alt="Urban Photography" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Urban Lights</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images\WhatsApp Image 2025-01-29 at 10.59.40 PM.jpeg" alt="Street Life" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Street Stories</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images\WhatsApp Image 2025-01-29 at 10.59.41 PM.jpeg" alt="City Moments" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>City Pulse</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images\WhatsApp Image 2025-01-29 at 11.00.03 PM.jpeg" alt="NYC Life" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>NYC Vibes</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos" class="section-proyectos" data-scroll="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <p class="section-subtitle">Experiencias visuales que cuentan historias</p>
+            </div>
+            <div class="proyectos-grid"></div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="section-contacto">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2 class="section-title scroll-animate gradient-text">Conectemos</h2>
+                    <p class="contact-description">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+                    
+                    <div class="social-grid">
+                        <a href="https://instagram.com/your-handle" class="social-item" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://linkedin.com/in/your-profile" class="social-item" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://tiktok.com/@your-handle" class="social-item" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok</span>
+                        </a>
+                        <a href="https://youtube.com/c/your-channel" class="social-item" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://wa.me/1234567890" class="social-item" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form scroll-animate" novalidate>
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            required 
+                            aria-required="true"
+                            pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]{2,50}"
+                            aria-describedby="nombre-error"
+                        >
+                        <label for="nombre">Nombre</label>
+                        <span class="form-line"></span>
+                        <span class="error-message" id="nombre-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" required>
+                        <label>Email</label>
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" required></textarea>
+                        <label>Mensaje</label>
+                        <span class="form-line"></span>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Enviar mensaje</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3 class="gradient-text">Sofi Bernal</h3>
+                <p>Capturando momentos únicos en Nueva York</p>
+            </div>
+            <div class="footer-links">
+                <a href="#galeria">Galería</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#sobre-mi">Sobre mí</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sofi Bernal</p>
+                <p class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Nueva York, USA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
