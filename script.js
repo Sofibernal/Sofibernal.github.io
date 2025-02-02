@@ -226,3 +226,29 @@ function initLazyLoading() {
     
     lazyImages.forEach(img => imageObserver.observe(img));
 }
+
+// Añadir detección de dispositivo móvil
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Ajustar comportamiento en móvil
+function adjustMobileLayout() {
+    if (isMobile()) {
+        // Ajustar la barra social
+        const socialSidebar = document.querySelector('.social-sidebar');
+        if (socialSidebar) {
+            socialSidebar.style.transform = 'translateX(0)';
+        }
+
+        // Ajustar tamaño de filtros
+        const filtros = document.querySelectorAll('.filtro-btn');
+        filtros.forEach(filtro => {
+            filtro.style.width = 'auto';
+        });
+    }
+}
+
+// Ejecutar al cargar y al cambiar tamaño de ventana
+window.addEventListener('load', adjustMobileLayout);
+window.addEventListener('resize', adjustMobileLayout);

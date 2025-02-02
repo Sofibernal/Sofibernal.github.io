@@ -56,6 +56,7 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* Hero Section */
@@ -126,6 +127,7 @@ body {
     align-items: center;
     padding: 2rem;
     text-align: center;
+    gap: 2rem; /* Añadido gap para mejor distribución */
 }
 
 /* Efectos de texto */
@@ -267,6 +269,7 @@ body {
     margin-bottom: 2rem;
     padding: 1rem;
     position: relative;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en móvil */
 }
 
 .filtros::after {
@@ -293,6 +296,9 @@ body {
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s var(--transition-smooth);
+    min-width: 120px; /* Asegura un ancho mínimo */
+    padding: 0.8rem 1.5rem;
+    white-space: nowrap; /* Evita que el texto se corte */
 }
 
 .filtro-btn::before {
@@ -387,6 +393,47 @@ body {
         width: 100vh;
         height: 100vw;
         transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .social-sidebar {
+        right: 0.5rem; /* Reducido el margen derecho */
+        background: rgba(10, 10, 10, 0.8); /* Fondo semi-transparente */
+        padding: 0.5rem;
+        border-radius: 25px;
+        backdrop-filter: blur(5px);
+    }
+
+    .filtro-btn {
+        font-size: 0.8rem; /* Texto más pequeño en móvil */
+        padding: 0.6rem 1rem;
+    }
+
+    .scrolling-text {
+        font-size: 0.8rem;
+        margin: 0.5rem 0 1.5rem;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    /* Ajuste del contenedor principal para evitar desbordamiento */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Asegurar que el contenido no se desborde */
+    .container, 
+    .section-galeria,
+    .section-proyectos,
+    .section-contacto {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -1034,4 +1081,22 @@ body {
     :root {
         --container-padding: 1rem;
     }
+
+    .filtros {
+        gap: 0.5rem;
+    }
+
+    .filtro-btn {
+        min-width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Ajuste del espaciado en hero-content */
+.scrolling-text {
+    margin: 1rem 0 2rem; /* Ajuste del margen */
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
 }
